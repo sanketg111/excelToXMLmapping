@@ -1,10 +1,12 @@
+import os
+
 import xlrd
 import xml.etree.ElementTree as ET
 import datetime
 import logging.handlers
 import sys
 #import mmcXMLmapping. #SourceCode.ReadInputResources.ReadInputResources as rir
-import SourceCode.ReadInputResources.ReadInputResources as rir
+#import SourceCode.ReadInputResources.ReadInputResources as rir
 
 timeStamp = datetime.datetime.now().timestamp().__str__()
 splitTimeStamp =timeStamp.split(".")
@@ -25,7 +27,7 @@ print("++++++++++++++++++++++++++++++++++++ Welcome ++++++++++++++++++++++++++++
 #inputFilePath = input("Please Enter Input File Path:\t")
 logging.debug('### Process Begins ###',)
 
-inputFilePath = "InputResource\MasterCopyInputExcel.xlsx" #Note:- Hardcoding the Input File Path
+inputFilePath = "inputResource\MasterCopyInputExcel.xlsx" #Note:- Hardcoding the Input File Path
 outFilePath   = "OutputResource\\"
 # outFilePathOrg   = input("Please Enter Output File Path( Ex: \"C:\\User\\abc\" ):\t")
 # outFilePath = outFilePathOrg.replace("\\","\\\\")
@@ -58,9 +60,9 @@ sheet.cell_value(0, 0)
 
 
 #below code is to read all the tags name / Key Name
-noOfColumn = rir.getNoOfColumn()
-print("No of Column -----> ",noOfColumn)
-#noOfColumn = sheet.ncols
+#noOfColumn = rir.getNoOfColumn()
+#print("No of Column -----> ",noOfColumn)
+noOfColumn = sheet.ncols
 noOfRows = sheet.nrows
 parentArray =[]
 eachCase =[]

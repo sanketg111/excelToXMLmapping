@@ -1,0 +1,6 @@
+{
+   "contextInputPath":"/excelToXMLmapping/InputResource/MasterCopyInputExcel",
+   "contextOutputPath":"/excelToXMLmapping/OutputResource/",
+   "sessionLogPath":"/excelToXMLmapping/SessionLogs",
+   "tag4xmlOutputFileName":"APPEAL_REF_NO"
+}

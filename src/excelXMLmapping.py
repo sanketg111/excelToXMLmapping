@@ -13,10 +13,10 @@ splitTimeStamp =timeStamp.split(".")
 timeStamp = splitTimeStamp[0]
 
 try:
-    logging.basicConfig(filename="SessionLogs/"+timeStamp+"convertor.log",level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+    logging.basicConfig(filename="excelToXMLmapping/sessionLogs/"+timeStamp+"convertor.log",level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 except FileNotFoundError as ex:
-    os.mkdir("SessionLogs")
-    logging.basicConfig(filename="SessionLogs/" + timeStamp + "convertor.log", level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+    os.mkdir("/excelToXMLmapping/sessionLogs")
+    logging.basicConfig(filename="excelToXMLmapping/sessionLogs/" + timeStamp + "convertor.log", level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
     print(ex)
 
 
@@ -27,8 +27,8 @@ print("++++++++++++++++++++++++++++++++++++ Welcome ++++++++++++++++++++++++++++
 #inputFilePath = input("Please Enter Input File Path:\t")
 logging.debug('### Process Begins ###',)
 
-inputFilePath = "inputResource\MasterCopyInputExcel.xlsx" #Note:- Hardcoding the Input File Path
-outFilePath   = "OutputResource\\"
+inputFilePath = "\excelToXMLmapping\inputResource\MasterCopyInputExcel.xlsx" #Note:- Hardcoding the Input File Path
+outFilePath   = "\\excelToXMLmapping\\outputResource\\"
 # outFilePathOrg   = input("Please Enter Output File Path( Ex: \"C:\\User\\abc\" ):\t")
 # outFilePath = outFilePathOrg.replace("\\","\\\\")
 # outFilePath = outFilePath + "\\\\"
@@ -47,10 +47,10 @@ print("\nConversion In Progress..."+
 try:
     wb = xlrd.open_workbook(inputFilePath)
 except FileNotFoundError as  ex:
-    logging.debug("Please make sure that Input Data is available at: InputResource\MasterCopyInputExcel.xlsx")
+    logging.debug("Please make sure that Input Data is available at: excelToXMLmapping\inputResource\MasterCopyInputExcel.xlsx")
     logging.debug("SYSTEM MESSAGE: %s", ex)
     logging.debug("### Process Terminated ###")
-    print("Please make sure that Input Data is available at: InputResource\MasterCopyInputExcel.xlsx")
+    print("Please make sure that Input Data is available at: excelToXMLmapping\inputResource\MasterCopyInputExcel.xlsx")
     sys.exit()
 
 sheet = wb.sheet_by_index(0)

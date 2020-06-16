@@ -113,7 +113,7 @@ def getmyXML():
         for eachValue in eachXML:
                 eachKeyTag = ET.Element(getkeyTags()[count])
                 try:
-                    if isinstance(eachValue,float) :
+                    if isinstance(eachValue,float) or isinstance(eachValue,int) :
                         eachValue= str(int(eachValue))
 
                     eachKeyTag.text = eachValue
@@ -142,7 +142,8 @@ def getmyXML():
         outputFileCounter = "[{}/{}]".format(getxmlValueList().index(eachXML) + 1, len(getxmlValueList()))
         # create a new XML file with the results
         try:
-            eachOutputFileData = ET.tostring(xmlTag,xml_declaration=True,encoding="unicode")
+            #eachOutputFileData = ET.tostring(xmlTag,encoding="cp1252",xml_declaration=True) #cp1252 #unicode
+            eachOutputFileData = ET.tostring(xmlTag, encoding='UTF-8', method='xml',xml_declaration=True).decode()
         except TypeError as ex:
             logger.debug("%s Output XML, was not created, due some numeric or decimal value, plz check the following erroneous value of this XML in Input File ",outputFileCounter)
             logger.debug("%s System Exception Message: %s",outputFileCounter,ex)
